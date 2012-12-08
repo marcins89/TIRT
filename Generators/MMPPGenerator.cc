@@ -70,8 +70,8 @@ void MMPPGenerator::sendMessage(){
 cMessage *MMPPGenerator::generatePacket(){
     char msgname[30];
     int src = 2;
-    int dest = 5;
-    int Class = 1;
+    int dest = rand()%5;
+    int Class = rand()%6;
     int SessionId = 1;
     int PacketId = 1;
     int Payload = 1;

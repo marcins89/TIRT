@@ -25,6 +25,9 @@ protected:
     int32_t queuesNums;
     int32_t currentQueue;
 
+    cDoubleHistogram queueOutHistogram;
+    cDoubleHistogram queueInHistogram;
+
     cPacketQueue** queues;
     double* weights;
 

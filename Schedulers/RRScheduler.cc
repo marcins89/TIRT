@@ -19,6 +19,8 @@ Define_Module(RRScheduler)
 
 void RRScheduler::initialize(){
     Scheduler::initialize();
+    queueOutHistogram.setName("queuesOut");
+    queueInHistogram.setName("queuesIn");
 }
 
 bool RRScheduler::receivePacket(Packet* packet){
@@ -30,6 +32,7 @@ bool RRScheduler::receivePacket(Packet* packet){
             num++;
             find = (*iter) == source;
         }
+        queueInHistogram.collect(source);
 
         if(find){
             list<list<Packet*>* >::iterator iter = queues.begin();
@@ -80,6 +83,8 @@ Packet* RRScheduler::getPacketToSend(){
         queuesCount--;
 
     }
+
+    queueOutHistogram.collect(currentQueue);
 
     return packet;
 }

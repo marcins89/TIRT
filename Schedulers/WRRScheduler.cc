@@ -20,6 +20,9 @@ Define_Module(WRRScheduler)
 void WRRScheduler::initialize(){
     Scheduler::initialize();
 
+    queueOutHistogram.setName("queuesOut");
+    queueInHistogram.setName("queuesIn");
+
     queueSize = par("queueSize");
     queuesNums = par("queuesNums");
 
@@ -48,6 +51,8 @@ bool WRRScheduler::receivePacket(Packet* packet){
         res = true;
     }
 
+    queueInHistogram.collect(pr);
+
     return res;
 }
 
@@ -71,6 +76,8 @@ Packet* WRRScheduler::getPacketToSend(){
     }
 
     weights[currentQueue] -= 1.0;
+
+    queueOutHistogram.collect(currentQueue);
 
     return check_and_cast<Packet*>(queues[currentQueue]->pop());
 }

@@ -21,7 +21,7 @@ package tirtproject.Schedulers;
 simple WRRScheduler extends Scheduler {
   parameters:
     int queueSize = default(5);
-    int queuesCount = default(5);
+    int queuesNums = default(5);
     int currentQueue = default(5);
 
     @class(WRRScheduler);

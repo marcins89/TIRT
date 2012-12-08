@@ -25,6 +25,9 @@ class RRScheduler: public Scheduler {
         list<int> address;
         list<list<Packet*>*> queues;
 
+        cDoubleHistogram queueOutHistogram;
+        cDoubleHistogram queueInHistogram;
+
         int queuesCount;
         int queueSize;
 
