@@ -17,10 +17,34 @@
 
 Define_Module(LIFOScheduler)
 
-Packet* LIFOScheduler::getPacketToSend(){
-    Packet* packet = queue.back();
+void LIFOScheduler::initialize(){
+    Scheduler::initialize();
+    queueSize = par("queueSize");
+}
 
-    queue.pop_back();
+bool LIFOScheduler::receivePacket(Packet* packet){
+    bool res = false;
+
+    if(canReceive()){
+        queue.push_front(packet);
+        res = true;
+    }
+
+    return res;
+}
+
+Packet* LIFOScheduler::getPacketToSend(){
+    Packet* packet = queue.front();
+
+    queue.pop_front();
 
     return packet;
+}
+
+bool LIFOScheduler::hasWaitingPacket(){
+    return !queue.empty();
+}
+
+bool LIFOScheduler::canReceive(){
+    return queue.size() < queueSize;
 }

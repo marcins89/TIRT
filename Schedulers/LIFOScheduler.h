@@ -20,12 +20,16 @@ using namespace std;
 #include "FIFOScheduler.h"
 #include "list"
 
-class LIFOScheduler: public FIFOScheduler {
+class LIFOScheduler: public Scheduler {
    protected:
-       int32_t queueSize;
-       list<Packet*> queue;
+        int32_t queueSize;
+        list<Packet*> queue;
 
-       virtual Packet* getPacketToSend();
+        virtual void initialize();
+        virtual bool receivePacket(Packet* packet);
+        virtual bool  hasWaitingPacket();
+        virtual Packet* getPacketToSend();
+        virtual bool canReceive();
 };
 
 #endif /* LIFOSCHEDULER_H_ */
