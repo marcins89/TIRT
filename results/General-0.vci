@@ -1,0 +1,24 @@
+file 10528 1354982605                                           
+version 2
+run General-0-20121208-17:03:01-1680
+attr configname General
+attr datetime 20121208-17:03:01
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network ""
+attr processid 1680
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 0  ACBannedIP.AC  "Arrivals AC"  ETV
+attr interpolationmode  none
+vector 1  ACBannedIP.sink  arrivals  ETV
+attr interpolationmode  none
+0	522 4269 17 819 1.255930758047 53.255930758047 203 1 1 203 203
+1	5536 4269 19 818 1.255930758047 52.255930758047 202 1 1 202 202

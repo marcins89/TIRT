@@ -1,6 +1,6 @@
-file 474 1355570525                                             
+                                                                
 version 2
-run LeakyBucket-0-20121215-12:21:48-18383
+file 474 1357236415run LeakyBucket-0-20121215-12:21:48-18383
 attr configname LeakyBucket
 attr datetime 20121215-12:21:48
 attr experiment LeakyBucket
@@ -15,7 +15,6 @@ attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
-
 vector 0  LeakyBucketNetwork.sink  arrivals  ETV
-attr interpolationmode  none
+attr interpolationmode none
 0	466 8 6 6 0 0 1 1 1 1 1

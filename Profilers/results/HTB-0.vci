@@ -1,6 +1,6 @@
-file 649 1355587490                                             
+                                                                
 version 2
-run HTB-0-20121215-17:03:39-2524
+file 649 1357236415run HTB-0-20121215-17:03:39-2524
 attr configname HTB
 attr datetime 20121215-17:03:39
 attr experiment HTB
@@ -15,7 +15,6 @@ attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
-
 vector 0  HierarchicalTokenBucketNetwork.sink  arrivals  ETV
-attr interpolationmode  none
+attr interpolationmode none
 0	464 185 10 114 0 19 20 1 1 20 20

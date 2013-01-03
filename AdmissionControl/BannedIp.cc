@@ -2,6 +2,8 @@
 #include <Packet_m.h>
 #include "BannedIp.h"
 
+using namespace std;
+
 Define_Module(BannedIp);
 
 void BannedIp::initialize()
@@ -9,10 +11,10 @@ void BannedIp::initialize()
         AdmControl::initialize();
 
         const char* ids = par("restrictedAcces");
-        std::vector<int> vIds = cStringTokenizer(ids).asIntVector();
+        vector<int> j = cStringTokenizer(ids).asIntVector();
 
-        for(uint32_t i = 0; i < vIds.size(); i++)
-            restrictedAcces.insert(vIds[i]);
+        for(int i = 0; i < j.size(); i++)
+            restrictedAcces.insert(j[i]);
 }
 
 bool BannedIp::packetAccept(Packet* pck)

@@ -35,17 +35,17 @@ bool BLUEControl::packetAccept(Packet* pck)
             }
             return false;
         }
-        //pakiet akceptujemy
+        //pakiet akceptujemy i zmniejszamy szanse na odrzucenie
         else{
+            if(propability-propDiff > propDiff){
+                propability = propability - propDiff;
+                EV << "Decrased propability to " << propability << endl;
+            }
             return true;
         }
     }
-    //forwardujemy i zmniejszamy szanse na odrzucenie
+    //forwardujemy
     else {
-        if(propability-propDiff > propDiff){
-            propability = propability - propDiff;
-            EV << "Decrased propability to " << propability << endl;
-        }
         return true;
     }
 }

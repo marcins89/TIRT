@@ -1,0 +1,57 @@
+version 2
+run networkA-0-20130103-19:28:44-784
+attr configname networkA
+attr datetime 20130103-19:28:44
+attr experiment networkA
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network networkA
+attr processid 784
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+statistic networkA.sink 	"interarrival times"
+field count 12
+field mean 4.75
+field stddev 3.5788912136129
+field sum 57
+field sqrsum 411.64308550763
+field min 1
+field max 10.11339001961
+bin	-INF	0
+bin	-3.556695009805	0
+bin	-2.9491356751643	0
+bin	-2.3415763405237	0
+bin	-1.734017005883	0
+bin	-1.1264576712423	0
+bin	-0.51889833660167	0
+bin	0.088660998039	0
+bin	0.69622033267967	4
+bin	1.3037796673203	0
+bin	1.911339001961	1
+bin	2.5188983366017	0
+bin	3.1264576712423	1
+bin	3.734017005883	0
+bin	4.3415763405237	0
+bin	4.9491356751643	1
+bin	5.556695009805	0
+bin	6.1642543444457	0
+bin	6.7718136790863	0
+bin	7.379373013727	1
+bin	7.9869323483677	3
+bin	8.5944916830083	0
+bin	9.202051017649	0
+bin	9.8096103522897	1
+bin	10.41716968693	0
+bin	11.024729021571	0
+bin	11.632288356212	0
+bin	12.239847690852	0
+bin	12.847407025493	0
+bin	13.454966360134	0
+bin	14.062525694774	0
+bin	14.670085029415	0
