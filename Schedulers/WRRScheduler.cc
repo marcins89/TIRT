@@ -49,9 +49,10 @@ bool WRRScheduler::receivePacket(Packet* packet){
     if(canReceive(pr)){
         queues[pr]->insert(packet);
         res = true;
+        queueInHistogram.collect(pr);
     }
 
-    queueInHistogram.collect(pr);
+
 
     return res;
 }
