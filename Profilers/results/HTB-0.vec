@@ -1,0 +1,39 @@
+version 2
+run HTB-0-20121215-17:03:39-2524
+attr configname HTB
+attr datetime 20121215-17:03:39
+attr experiment HTB
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network HierarchicalTokenBucketNetwork
+attr processid 2524
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 0  HierarchicalTokenBucketNetwork.sink  arrivals  ETV
+attr interpolationmode  none
+0	10	0	1
+0	12	0	1
+0	18	1	1
+0	20	1	1
+0	24	2	1
+0	29	3	1
+0	39	4	1
+0	41	4	1
+0	43	4	1
+0	45	4	1
+0	58	6	1
+0	60	6	1
+0	62	6	1
+0	74	8	1
+0	75	8	1
+0	77	8	1
+0	87	10	1
+0	89	10	1
+0	96	11	1
+0	114	19	1

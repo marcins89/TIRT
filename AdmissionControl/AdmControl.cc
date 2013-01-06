@@ -21,13 +21,13 @@ void AdmControl::initialize()
 void AdmControl::handleMessage(cMessage* msg)
 {
 
-    wentIn++;
+
     lastArrival = std::max(lastArrival, simTime());
     EV << "Processing no. " << processing << endl;
 
     //odbieramy swoja opozniona wiadomosc i dopiero ja procesujemy
     if(msg->isSelfMessage()){
-
+        wentIn++;
         EV << "Processing " << msg->getName() << endl;
 
         Packet* pck = check_and_cast<Packet*>(msg);

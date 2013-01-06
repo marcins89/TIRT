@@ -1,0 +1,20 @@
+                                                                
+version 2
+file 545 1357236415run TokenBucket-0-20121215-16:57:38-2437
+attr configname TokenBucket
+attr datetime 20121215-16:57:38
+attr experiment TokenBucket
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network TokenBucketNetwork
+attr processid 2437
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+vector 0  TokenBucketNetwork.sink  arrivals  ETV
+attr interpolationmode none
+0	464 81 4 93 0 24 9 1 1 9 9

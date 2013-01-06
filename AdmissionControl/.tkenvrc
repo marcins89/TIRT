@@ -1,5 +1,5 @@
 # Partial Tkenv config file -- see $HOME/.tkenvrc as well
+inspector "ACBlue.AC" "BLUEControl" "1" "599x493+25+379:normal"
+inspector "ACBlue" "ACBlue" "2" "565x342+30+21:normal"
 inspector "ACBannedIP" "ACBannedIP" "2" "565x341+225+225:normal"
-inspector "ACBlue.AC" "BLUEControl" "1" "599x493+24+456:normal"
-inspector "ACBlue" "ACBlue" "2" "565x341+25+25:normal"
 

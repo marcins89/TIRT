@@ -1,0 +1,22 @@
+version 2
+run DobuleTokenBucket-0-20121215-17:01:29-2507
+attr configname DobuleTokenBucket
+attr datetime 20121215-17:01:29
+attr experiment DobuleTokenBucket
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network DoubleTokenBucketNetwork
+attr processid 2507
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 0  DoubleTokenBucketNetwork.sink  arrivals  ETV
+attr interpolationmode  none
+0	7	0	1
+0	29	5	1
+0	50	10	1
