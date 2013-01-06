@@ -32,6 +32,7 @@ protected:
     double* weights;
 
     virtual void initialize();
+    virtual void finish();
     virtual bool receivePacket(Packet* packet);
     virtual bool  hasWaitingPacket();
     virtual Packet* getPacketToSend();

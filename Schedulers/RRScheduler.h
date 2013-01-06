@@ -35,6 +35,7 @@ class RRScheduler: public Scheduler {
         virtual void initialize();
         virtual bool receivePacket(Packet* packet);
         virtual bool  hasWaitingPacket();
+        virtual void finish();
         virtual Packet* getPacketToSend();
 };
 

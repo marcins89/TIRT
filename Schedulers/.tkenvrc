@@ -1,5 +1,4 @@
 # Partial Tkenv config file -- see $HOME/.tkenvrc as well
-inspector "SCHWRR" "SCHWRR" "2" "607x337+-9+47:normal"
-inspector "SCHRR" "SCHRR" "2" "565x341+175+175:normal"
 inspector "SCHFifo" "SCHFifo" "2" "565x341+150+150:normal"
+inspector "SCHRR" "SCHRR" "2" "607x337+578+170:normal"
 

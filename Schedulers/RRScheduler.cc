@@ -23,6 +23,11 @@ void RRScheduler::initialize(){
     queueInHistogram.setName("queuesIn");
 }
 
+void RRScheduler::finish(){
+    queueOutHistogram.recordAs("out hist");
+    queueInHistogram.recordAs("in hist");
+}
+
 bool RRScheduler::receivePacket(Packet* packet){
     int source = packet->getSrc();
 

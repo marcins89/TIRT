@@ -42,6 +42,11 @@ void WRRScheduler::initialize(){
     }
 }
 
+void WRRScheduler::finish(){
+    queueOutHistogram.recordAs("out hist");
+    queueInHistogram.recordAs("in hist");
+}
+
 bool WRRScheduler::receivePacket(Packet* packet){
     int32_t pr = min(max(packet->getPriority(),0),queuesNums-1);
     bool res = false;

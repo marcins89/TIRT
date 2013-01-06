@@ -1,0 +1,21 @@
+file 8159 1357473711                                            
+version 2
+run Sim3-0-20130106-13:01:00-8650
+attr configname Sim3
+attr datetime 20130106-13:01:00
+attr experiment Sim3
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network PoissonGeneratorNetwork
+attr processid 8650
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 0  PoissonGeneratorNetwork.sink  arrivals  ETV
+attr interpolationmode  none
+0	453 7706 1 1195 12 6315 598 1 1 598 598

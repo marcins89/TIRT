@@ -1,0 +1,21 @@
+file 4348 1354985575                                            
+version 2
+run General-0-20121208-17:50:32-3825
+attr configname General
+attr datetime 20121208-17:50:32
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network ""
+attr processid 3825
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 0  SCHWRR.sink  arrivals  ETV
+attr interpolationmode  none
+0	424 3924 20 1520 1.951545335884 186.07443557612 160 1 1 160 160

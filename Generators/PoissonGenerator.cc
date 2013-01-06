@@ -24,6 +24,7 @@ class PoissonGenerator : public cSimpleModule
         int rnb;
         double delay;
     protected:
+        cDoubleHistogram delaysHistogram;
         virtual cMessage *generatePacket();
         virtual void sendMessage();
         virtual void initialize();
@@ -35,6 +36,8 @@ Define_Module(PoissonGenerator);
 void PoissonGenerator::initialize(){
     lambda = par("lambda").doubleValue();
     rnb = par("rnb").longValue();
+
+    delaysHistogram.setName("delays");
 
     WATCH(delay);
 
@@ -58,7 +61,7 @@ void PoissonGenerator::sendMessage(){
     cMessage *packet = generatePacket();
     sendDelayed(packet, delay, "out");
     scheduleAt(simTime()+delay, sel);
-
+    delaysHistogram.collect(delay);
 
 }
 
