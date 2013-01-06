@@ -16,6 +16,10 @@ class OnOffGenerator : public cSimpleModule
   private:
     Packet *msgGL;
     int sessionCnt;
+    cDoubleHistogram isChangesHistogram;
+    cOutVector isChangesVector;
+    simtime_t lastGeneration;
+    int OnOrOff;
 
   public:
     OnOffGenerator();
@@ -24,6 +28,7 @@ class OnOffGenerator : public cSimpleModule
   protected:
     virtual Packet *generateMessage();
     virtual void initialize();
+    virtual void finish();
     virtual void handleMessage(cMessage *msg);
 };
 

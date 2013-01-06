@@ -1,0 +1,24 @@
+file 9780 1357484137                                            
+version 2
+run OnOff-0-20130106-15:55:29-7100
+attr configname OnOff
+attr datetime 20130106-15:55:29
+attr experiment OnOff
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network OnOffNetwork
+attr processid 7100
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 0  OnOffNetwork.OnOff  "Changes vector"  ETV
+attr interpolationmode  none
+vector 1  OnOffNetwork.sink  arrivals  ETV
+attr interpolationmode  none
+0	536 4273 1 290 0 98.247216877886 282 0 1 144 144
+1	7403 0 2 288 0 97.834260687929 98 1 1 98 98

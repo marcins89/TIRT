@@ -13,9 +13,18 @@ void AdmControl::initialize()
     WATCH(processing);
 
     iaTimeHistogram.setName("Time packets went through");
+    isArrivalsHistogram.setName("Sources from which packets arrived");
+    isOutputsHistogram.setName("Sources from which packets were forwarded");
     arrivalsVector.setName("Arrivals AC");
     arrivalsVector.setInterpolationMode(cOutVector::NONE);
 
+}
+
+void AdmControl::finish()
+{
+    iaTimeHistogram.recordAs("Interarrival times out");
+    isArrivalsHistogram.recordAs("Arrivals sources out");
+    isOutputsHistogram.recordAs("Forwarder sources out");
 }
 
 void AdmControl::handleMessage(cMessage* msg)
@@ -31,6 +40,7 @@ void AdmControl::handleMessage(cMessage* msg)
         EV << "Processing " << msg->getName() << endl;
 
         Packet* pck = check_and_cast<Packet*>(msg);
+        isArrivalsHistogram.collect(pck->getSrc());
 
         //sprawdzenie akceptacji pakietu
         if(packetAccept(pck)){
@@ -38,6 +48,7 @@ void AdmControl::handleMessage(cMessage* msg)
             //zebranie danych
             simtime_t d = simTime() - lastArrival;
             iaTimeHistogram.collect(d);
+            isOutputsHistogram.collect(pck->getSrc());
             arrivalsVector.record(1);
 
             //pobranie bramy wyjsciowej i wyslanie przez nia pakietu
@@ -64,10 +75,5 @@ void AdmControl::handleMessage(cMessage* msg)
         processing++;
         scheduleAt(simTime()+delay, msg);
     }
-
-}
-
-void AdmControl::finish()
-{
 
 }

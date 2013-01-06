@@ -39,5 +39,6 @@ void Node::handleMessage(cMessage *msg)
 
 void Node::finish()
 {
-    recordStatistic(&iaTimeHistogram);
+    //recordStatistic(&iaTimeHistogram);
+    iaTimeHistogram.recordAs("interarrival times out");
 }
