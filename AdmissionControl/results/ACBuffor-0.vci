@@ -1,0 +1,27 @@
+file 40575 1357584527                                           
+version 2
+run ACBuffor-0-20130107-19:48:44-6064
+attr configname ACBuffor
+attr datetime 20130107-19:48:44
+attr experiment ACBuffor
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network tirtproject.AdmissionControl.ACBuffor
+attr processid 6064
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 0  ACBuffor.OnOff  "Changes vector"  ETV
+attr interpolationmode  none
+vector 1  ACBuffor.AC  "Arrivals AC"  ETV
+attr interpolationmode  none
+vector 2  ACBuffor.sink  arrivals  ETV
+attr interpolationmode  none
+0	635 21294 1 2251 0 598.798042438714 867 0 1 424 424
+1	23329 8615 6 2254 1 599 424 1 1 424 424
+2	31952 8615 7 2255 1 599 424 1 1 424 424

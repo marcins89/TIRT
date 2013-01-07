@@ -12,6 +12,9 @@ void BLUEControl::initialize()
         propDiff = par("propDiff");
         bufforSize = par("bufforSize");
 
+        propabilityVector.setName("Propability vector");
+        propabilityVector.setInterpolationMode(cOutVector::NONE);
+
         chance = 0;
 
         WATCH(propability);
@@ -33,6 +36,9 @@ bool BLUEControl::packetAccept(Packet* pck)
                 propability = propability + propDiff;
                 EV << "Increased propability to " << propability << endl;
             }
+
+            propabilityVector.recordWithTimestamp(simTime(),propability);
+
             return false;
         }
         //pakiet akceptujemy i zmniejszamy szanse na odrzucenie
@@ -41,11 +47,13 @@ bool BLUEControl::packetAccept(Packet* pck)
                 propability = propability - propDiff;
                 EV << "Decrased propability to " << propability << endl;
             }
+            propabilityVector.recordWithTimestamp(simTime(),propability);
             return true;
         }
     }
     //forwardujemy
     else {
+        propabilityVector.recordWithTimestamp(simTime(),propability);
         return true;
     }
 }
