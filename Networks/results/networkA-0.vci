@@ -1,23 +1,30 @@
-                                                                
+file 39331 1357754762                                           
 version 2
-file 2563 1357237741run networkA-0-20130103-19:28:44-784
+run networkA-0-20130109-19:05:59-2612
 attr configname networkA
-attr datetime 20130103-19:28:44
+attr datetime 20130109-19:05:59
 attr experiment networkA
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network networkA
-attr processid 784
+attr processid 2612
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
-vector 0  networkA.AC  "Arrivals AC"  ETV
-attr interpolationmode none
-0	525 1868 8 439 1 58 98 1 1 98 98
-vector 1  networkA.sink  arrivals  ETV
-attr interpolationmode none
-1	2393 170 23 432 2 57 12 1 1 12 12
+
+vector 0  networkA.OnOff  "Changes vector"  ETV
+attr interpolationmode  none
+vector 2  networkA.AdmissionControl  "Packet size vector"  ETV
+attr interpolationmode  none
+vector 1  networkA.AdmissionControl  "Arrivals AC"  ETV
+attr interpolationmode  none
+vector 3  networkA.sink  arrivals  ETV
+attr interpolationmode  none
+0	714 21294 1 2236 0 598.798042438714 867 0 1 424 424
+1	23415 0 45 2221 13.620904215956 596.090362287279 102 1 1 102 102
+2	25432 8538 7 2239 1 599 511 193 32695 8149380 174005470228
+3	37766 0 53 2227 14.620904215956 597.090362287279 77 1 1 77 77

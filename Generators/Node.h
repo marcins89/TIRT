@@ -17,6 +17,7 @@
 #define __ON_OFF_NODE_H_
 
 #include <omnetpp.h>
+#include <Packet_m.h>
 
 /**
  * TODO - Generated class
@@ -29,6 +30,7 @@ class Node : public cSimpleModule
 
       // statistics
       cDoubleHistogram iaTimeHistogram;
+      cLongHistogram isArrivalsHistogram;
       cOutVector arrivalsVector;
 
     protected:

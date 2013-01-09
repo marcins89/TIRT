@@ -34,15 +34,15 @@ network networkA {
         	@display("p=50,250");
         };
         
-        AC : SizeControl {
+        AdmissionControl : SizeControl {
         	@display("p=150,150");
         };
         
-        SCH : FIFOScheduler {
+        Scheduler : FIFOScheduler {
             @display("p=350,150");
         };
         
-        PRF : TokenBucket {
+        Profiler : TokenBucket {
           	@display("p=250,150");  
         };
         
@@ -52,12 +52,12 @@ network networkA {
 
     connections:
         
-        OnOff.out --> AC.in++;
-        poissonGenerator.out --> AC.in++;
-        MMPPGenerator.out --> AC.in++;
-        AC.out --> PRF.in;
-        PRF.out --> SCH.in++;
-        SCH.out --> sink.in;
+        OnOff.out --> AdmissionControl.in++;
+        poissonGenerator.out --> AdmissionControl.in++;
+        MMPPGenerator.out --> AdmissionControl.in++;
+        AdmissionControl.out --> Profiler.in;
+        Profiler.out --> Scheduler.in++;
+        Scheduler.out --> sink.in;
     
 }
 
@@ -76,15 +76,15 @@ network networkB {
         	@display("p=50,250");
         };
         
-        AC : BannedIp {
+        AdmissionControl : BannedIp {
         	@display("p=150,150");
         };
         
-        SCH : RRScheduler {
+        Scheduler : RRScheduler {
             @display("p=350,150");
         };
         
-        PRF : DoubleTokenBucket {
+        Profiler : DoubleTokenBucket {
           	@display("p=250,150");  
         };
         
@@ -94,12 +94,12 @@ network networkB {
 
     connections:
         
-        OnOff.out --> AC.in++;
-        poissonGenerator.out --> AC.in++;
-        MMPPGenerator.out --> AC.in++;
-        AC.out --> PRF.in;
-        PRF.out --> SCH.in++;
-        SCH.out --> sink.in;
+        OnOff.out --> AdmissionControl.in++;
+        poissonGenerator.out --> AdmissionControl.in++;
+        MMPPGenerator.out --> AdmissionControl.in++;
+        AdmissionControl.out --> Profiler.in;
+        Profiler.out --> Scheduler.in++;
+        Scheduler.out --> sink.in;
     
 }
 
@@ -118,15 +118,15 @@ network networkC {
         	@display("p=50,250");
         };
         
-        AC : BufforControl {
+        AdmissionControl : BufforControl {
         	@display("p=150,150");
         };
         
-        SCH : WRRScheduler {
+        Scheduler : WRRScheduler {
             @display("p=350,150");
         };
         
-        PRF : LeakyBucket {
+        Profiler : LeakyBucket {
           	@display("p=250,150");  
         };
         
@@ -136,12 +136,12 @@ network networkC {
 
     connections:
         
-        OnOff.out --> AC.in++;
-        poissonGenerator.out --> AC.in++;
-        MMPPGenerator.out --> AC.in++;
-        AC.out --> PRF.in;
-        PRF.out --> SCH.in++;
-        SCH.out --> sink.in;
+        OnOff.out --> AdmissionControl.in++;
+        poissonGenerator.out --> AdmissionControl.in++;
+        MMPPGenerator.out --> AdmissionControl.in++;
+        AdmissionControl.out --> Profiler.in;
+        Profiler.out --> Scheduler.in++;
+        Scheduler.out --> sink.in;
     
 }
 

@@ -10,10 +10,15 @@ void BufforControl::initialize()
 
         bufforSize = par("bufforSize");
 
+        sizeVector.setName("Buffor size vector");
+        sizeVector.setInterpolationMode(cOutVector::NONE);
+
 }
 
 bool BufforControl::packetAccept(Packet* pck)
 {
+    sizeVector.recordWithTimestamp(simTime(),processing);
+
         if(processing > bufforSize)
             return false;
         else

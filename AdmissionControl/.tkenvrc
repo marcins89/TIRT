@@ -1,6 +1,6 @@
 # Partial Tkenv config file -- see $HOME/.tkenvrc as well
-inspector "ACSize" "ACSize" "2" "565x341+225+225:normal"
-inspector "ACBannedIP" "ACBannedIP" "2" "565x341+150+150:normal"
-inspector "ACBuffor" "ACBuffor" "2" "565x341+25+25:normal"
 inspector "ACBlue" "ACBlue" "2" "565x341+200+200:normal"
+inspector "ACBannedIP" "ACBannedIP" "2" "565x341+150+150:normal"
+inspector "ACSize" "ACSize" "2" "565x341+225+225:normal"
+inspector "ACBuffor" "ACBuffor" "2" "565x341+25+25:normal"
 

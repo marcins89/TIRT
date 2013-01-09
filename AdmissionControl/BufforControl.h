@@ -9,6 +9,8 @@ class BufforControl : public AdmControl {
 
     int bufforSize;
 
+    cOutVector sizeVector;
+
     virtual void initialize();
     virtual bool packetAccept(Packet* packet);
 

@@ -1,14 +1,14 @@
 version 2
-run ACBuffor-0-20130107-19:48:44-6064
+run ACBuffor-0-20130107-20:43:18-6680
 attr configname ACBuffor
-attr datetime 20130107-19:48:44
+attr datetime 20130107-20:43:18
 attr experiment ACBuffor
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network tirtproject.AdmissionControl.ACBuffor
-attr processid 6064
+attr processid 6680
 attr repetition 0
 attr replication #0
 attr resultdir results
