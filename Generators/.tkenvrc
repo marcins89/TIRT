@@ -1,4 +1,3 @@
 # Partial Tkenv config file -- see $HOME/.tkenvrc as well
 inspector "PoissonGeneratorNetwork" "PoissonGeneratorNetwork" "2" "607x337+530+134:normal"
-inspector "OnOffNetwork" "OnOffNetwork" "2" "565x341+25+25:normal"
 

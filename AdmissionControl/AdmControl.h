@@ -13,6 +13,9 @@ class AdmControl : public cSimpleModule {
 
         // statistics
         cDoubleHistogram iaTimeHistogram;
+        cLongHistogram isArrivalsHistogram;
+        cLongHistogram isOutputsHistogram;
+        cLongHistogram isDiscardedHistogram;
         cOutVector arrivalsVector;
 
         //counts

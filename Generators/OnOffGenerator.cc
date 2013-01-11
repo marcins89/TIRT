@@ -30,19 +30,34 @@ OnOffGenerator::~OnOffGenerator()
 
 void OnOffGenerator::initialize()
 {
-    int OnOrOff = par("OnOff");
+    OnOrOff = par("OnOff");
+    lastGeneration = simTime();
+    isChangesHistogram.setName("Time of generation");
+    isChangesVector.setName("Changes vector");
+    isChangesVector.setInterpolationMode(cOutVector::NONE);
 
     if(OnOrOff==1){
         msgGL = generateMessage();
         scheduleAt(simTime(), msgGL);
+        isChangesHistogram.collect(lastGeneration);
     };
 }
+
+void OnOffGenerator::finish()
+{
+    isChangesHistogram.recordAs("Time of generation out");
+}
+
 
 void OnOffGenerator::handleMessage(cMessage *msg)
 {
 
+    simtime_t d = simTime() - lastGeneration;
+    isChangesHistogram.collect(d);
+    lastGeneration = simTime();
+
     //Zmieniamy wartosc po przekroczeniu okreslonego progu
-    int OnOrOff = par("OnOff");
+   /* int OnOrOff = par("OnOff");*/
     int lowerB = par("lowerBound");
     int upperB = par("upperBound");
     int chgVal = par("changeValue");
@@ -50,34 +65,48 @@ void OnOffGenerator::handleMessage(cMessage *msg)
 
     if ((result >= chgVal) && OnOrOff == 0){
         OnOrOff = 1;
+        isChangesVector.recordWithTimestamp(simTime(),0);
+        isChangesVector.recordWithTimestamp(simTime(),1);
     }
     else if((result <= chgVal) && OnOrOff == 1){
         OnOrOff = 0;
+        isChangesVector.recordWithTimestamp(simTime(),1);
+        isChangesVector.recordWithTimestamp(simTime(),0);
         EV << "Blokada wysylki! Res: "<< result << endl;
+    }
+    else {
+        isChangesVector.recordWithTimestamp(simTime(),OnOrOff);
     };
-
+/*
     while (OnOrOff == 0){
         //Chcemy chwile poczekac przed nastepna proba wysylki
-//        Sleep(1000);
+        //Sleep(500);
         result = intuniform(lowerB,upperB);
         EV << "Proba odblokowania wysylki! Res: "<< result << endl;
         if ((result >= chgVal) && OnOrOff == 0){
             OnOrOff = 1;
         };
     };
-
-    ASSERT(msg==msgGL);
-
-    Packet *ttmsg = generateMessage();
-
+*/
     simtime_t delay = par("delayTime");
 
-    send(ttmsg, "out");
+    if(OnOrOff == 1){
 
-    scheduleAt(simTime()+delay, msgGL);
+        ASSERT(msg==msgGL);
 
-    sessionCnt++;
+        Packet *ttmsg = generateMessage();
 
+        send(ttmsg, "out");
+
+        scheduleAt(simTime()+delay, msgGL);
+
+        sessionCnt++;
+    }
+
+    else{
+        EV << "Wysylka zablokowana!"<< result << endl;
+        scheduleAt(simTime()+delay, msgGL);
+    }
 }
 
 Packet *OnOffGenerator::generateMessage()

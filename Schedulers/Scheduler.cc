@@ -17,6 +17,11 @@
 
 void Scheduler::initialize(){
     event = new cMessage("event");
+    isArrivalsHistogram.setName("Sources from which packets arrived");
+}
+
+void Scheduler::finish(){
+    isArrivalsHistogram.recordAs("Arrivals sources out");
 }
 
 void Scheduler::handleMessage(cMessage* msg){
@@ -25,6 +30,7 @@ void Scheduler::handleMessage(cMessage* msg){
 
     if(msg!=event){
         Packet* packet = check_and_cast<Packet*>(msg);
+        isArrivalsHistogram.collect(packet->getSrc());
 
         bool que = receivePacket(packet);
 

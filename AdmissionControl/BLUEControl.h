@@ -20,6 +20,8 @@ class BLUEControl : public AdmControl {
         int bufforSize;
         double chance;
 
+        cOutVector propabilityVector;
+
         virtual void initialize();
         virtual bool packetAccept(Packet* packet);
 

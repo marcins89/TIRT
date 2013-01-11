@@ -11,6 +11,8 @@ class SizeControl : public AdmControl {
         uint32_t minSize;
         uint32_t maxSize;
 
+        cOutVector sizeVector;
+
         virtual void initialize();
         virtual bool packetAccept(Packet* packet);
 

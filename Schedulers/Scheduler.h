@@ -23,8 +23,10 @@ class Scheduler: public cSimpleModule {
 
 protected:
         cMessage* event;
+        cLongHistogram isArrivalsHistogram;
 
         virtual void initialize();
+        virtual void finish();
         virtual void handleMessage(cMessage* msg);
         virtual bool receivePacket(Packet* packet) = 0;
         virtual bool  hasWaitingPacket() = 0;

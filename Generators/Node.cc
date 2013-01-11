@@ -21,12 +21,17 @@ void Node::initialize()
 {
     lastArrival = simTime();
     iaTimeHistogram.setName("interarrival times");
+    isArrivalsHistogram.setName("Sources from which packets arrived");
     arrivalsVector.setName("arrivals");
     arrivalsVector.setInterpolationMode(cOutVector::NONE);
 }
 
 void Node::handleMessage(cMessage *msg)
 {
+
+    Packet* pck = check_and_cast<Packet*>(msg);
+    isArrivalsHistogram.collect(pck->getSrc());
+
     simtime_t d = simTime() - lastArrival;
     EV << "Received " << msg->getName() << endl;
     delete msg;
@@ -39,5 +44,7 @@ void Node::handleMessage(cMessage *msg)
 
 void Node::finish()
 {
-    recordStatistic(&iaTimeHistogram);
+    //recordStatistic(&iaTimeHistogram);
+    iaTimeHistogram.recordAs("interarrival times out");
+    isArrivalsHistogram.recordAs("Sources from which packets arrived out");
 }

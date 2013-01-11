@@ -1,0 +1,30 @@
+file 38475 1357585065                                           
+version 2
+run ACSize-0-20130107-19:57:40-4652
+attr configname ACSize
+attr datetime 20130107-19:57:40
+attr experiment ACSize
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network tirtproject.AdmissionControl.ACSize
+attr processid 4652
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 0  ACSize.OnOff  "Changes vector"  ETV
+attr interpolationmode  none
+vector 2  ACSize.AC  "Propability vector"  ETV
+attr interpolationmode  none
+vector 1  ACSize.AC  "Arrivals AC"  ETV
+attr interpolationmode  none
+vector 3  ACSize.sink  arrivals  ETV
+attr interpolationmode  none
+0	699 21297 1 1900 0 598.798042438714 867 0 1 424 424
+1	23315 0 61 1886 16 595.756355868686 72 1 1 72 72
+2	24741 8540 6 1903 1 599 511 49 32734 8300762 177021619522
+3	37049 0 62 1887 16 595.756355868686 72 1 1 72 72
