@@ -1,3 +1,4 @@
 # Partial Tkenv config file -- see $HOME/.tkenvrc as well
+inspector "networkB" "networkB" "2" "565x341+150+150:normal"
 inspector "networkA" "networkA" "2" "565x341+75+75:normal"
 
