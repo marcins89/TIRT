@@ -20,6 +20,7 @@ void Scheduler::initialize(){
 }
 
 void Scheduler::handleMessage(cMessage* msg){
+    EV << "Handle message";
     simtime_t delay = par("delay");
 
     if(msg!=event){
@@ -35,12 +36,17 @@ void Scheduler::handleMessage(cMessage* msg){
             delete packet;
         }
     }else{
+        EV << "else\n";
         Packet* packet = getPacketToSend();
 
-        send(packet, "out");
+        if(packet!=NULL){
+            send(packet, "out");
+        }
 
         if(hasWaitingPacket()){
+            EV << "hasWaitingPacket nie\n";
             scheduleAt(simTime() + delay, event);
+            EV << "schedule\n";
         }
 
     }

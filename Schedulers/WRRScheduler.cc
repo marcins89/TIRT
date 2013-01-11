@@ -20,6 +20,8 @@ Define_Module(WRRScheduler)
 void WRRScheduler::initialize(){
     Scheduler::initialize();
 
+    EV << "init\n";
+
     queueOutHistogram.setName("queuesOut");
     queueInHistogram.setName("queuesIn");
 
@@ -43,11 +45,13 @@ void WRRScheduler::initialize(){
 }
 
 void WRRScheduler::finish(){
+    EV << "finish\n";
     queueOutHistogram.recordAs("out hist");
     queueInHistogram.recordAs("in hist");
 }
 
 bool WRRScheduler::receivePacket(Packet* packet){
+    EV << "recaiv\n";
     int32_t pr = min(max(packet->getPriority(),0),queuesNums-1);
     bool res = false;
 
@@ -57,12 +61,11 @@ bool WRRScheduler::receivePacket(Packet* packet){
         queueInHistogram.collect(pr);
     }
 
-
-
     return res;
 }
 
 bool WRRScheduler::hasWaitingPacket(){
+    EV << "has waiting\n";
     bool res = false;
 
     for(int32_t i = 0; i < queuesNums;i++ ){
@@ -76,6 +79,7 @@ bool WRRScheduler::hasWaitingPacket(){
 }
 
 Packet* WRRScheduler::getPacketToSend(){
+    EV << "get packet \n";
     while(queues[currentQueue]->empty() || weights[currentQueue] < 1){
         weights[currentQueue] = currentQueue;
         nextQueue();
@@ -85,14 +89,25 @@ Packet* WRRScheduler::getPacketToSend(){
 
     queueOutHistogram.collect(currentQueue);
 
-    return check_and_cast<Packet*>(queues[currentQueue]->pop());
+    try{
+        cPacket *packet =  queues[currentQueue]->pop();
+        return check_and_cast<Packet*>(packet);
+    }catch (cRuntimeError e) {
+        return NULL;
+    }
+
+
+
+
 }
 
 bool WRRScheduler::canReceive(int32_t queueIndex){
+    EV << "canRecaive\n";
     return queues[queueIndex]->getLength() < queueSize;
 }
 
 void WRRScheduler::nextQueue(){
+    EV << "next queue\n";
     if(++currentQueue==queuesNums){
         currentQueue = 0;
 
